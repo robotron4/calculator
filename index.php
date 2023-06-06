@@ -13,75 +13,34 @@
     <h2>Calculator</h2>
     <div id="calc">
         <form action="">
-            <input type="text" name="x" placeholder="x Wert">
+            <input type="text" name="x" placeholder="x Wert" value="<?php echo htmlspecialchars($_GET['x']); ?>">
             <select name="operator" id="">
                 <option value="add">add</option>
                 <option value="subtract">subtract</option>
                 <option value="divide">divide</option>
                 <option value="multiply">multiply</option>
             </select>
-            <input type="text" name="y" placeholder="y Wert">
+            <input type="text" name="y" placeholder="y Wert" value="<?php echo htmlspecialchars($_GET['y']); ?>">
             <br>
-            <input type="text" name="wurzel" placeholder="Wurzel aus">
+            <input type="text" name="wurzel" placeholder="Wurzel aus" value="<?php echo htmlspecialchars($_GET['wurzel']); ?>">
             <br>
             <input type="text" name="arr" placeholder="addiere Zahlen">
             <br>
             <button type="submit" name="submit" value="submit">calc</button>
+            <button type="submit" name="löschen">werte löschen</button>
         </form>
     </div>
 
     <div id="erg">
         <h3>Ergebnis:</h3>
         <?php
+        require "processGetData.php";
         if (isset($_GET["submit"])) {
-            $x = $_GET["x"];
-            $y = $_GET["y"];
-            $op = $_GET["operator"];
-
-            switch ($op) {
-                case "add":
-                    echo $x . " + " . $y . " = <b>" . $x + $y . "</b>";
-                    break;
-                case "subtract":
-                    echo $x . " - " . $y . " = <b>" . $x - $y . "</b>";
-                    break;
-                case "multiply":
-                    echo $x . " x " . $y . " = <b>" . $x * $y . "</b>";
-                    break;
-                case "divide":
-                    echo $x . " / " . $y . " = <b>" . $x / $y . "</b>";
-                    break;
-            }
+            process($x, $y, $op, $w);
         }
         ?>
-        <p>
-        </p>
     </div>
 
-    <p>answer:
-        <?php
-        if (isset($_GET["submit"])) {
-            $num1 = $_GET["x"];
-            $num2 = $_GET["y"];
-            $val = $_GET["operator"];
-
-            switch ($val) {
-                case "add":
-                    echo $num1 + $num2;
-                    break;
-                case "subtract":
-                    echo $num1 - $num2;
-                    break;
-                case "divide":
-                    echo $num1 / $num2;
-                    break;
-                case "multiply":
-                    echo $num1 * $num2;
-                    break;
-            }
-        }
-        ?>
-    </p>
 </body>
 
 </html>
