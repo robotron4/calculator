@@ -29,7 +29,7 @@
             <input type="text" name="arr" placeholder="addiere Zahlen" value="<?php [getArr()] ?>">
             <br>
             <button type="submit" name="submit" value="submit">calc</button>
-            <button type="submit" name="löschen">werte löschen</button>
+            <button type="submit" name="delete">werte löschen</button>
         </form>
     </div>
 
