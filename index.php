@@ -10,21 +10,23 @@
 </head>
 
 <body>
+    <?php include 'processGetData.php';
+    ?>
     <h2>Calculator</h2>
     <div id="calc">
         <form action="">
-            <input type="text" name="x" placeholder="x Wert" value="<?php echo htmlspecialchars($_GET['x']); ?>">
+            <input type="text" name="x" placeholder="x Wert" value="<?php getX() ?>">
             <select name="operator" id="">
                 <option value="add">add</option>
                 <option value="subtract">subtract</option>
                 <option value="divide">divide</option>
                 <option value="multiply">multiply</option>
             </select>
-            <input type="text" name="y" placeholder="y Wert" value="<?php echo htmlspecialchars($_GET['y']); ?>">
+            <input type="text" name="y" placeholder="y Wert" value="<?php getY() ?>">
             <br>
-            <input type="text" name="wurzel" placeholder="Wurzel aus" value="<?php echo htmlspecialchars($_GET['wurzel']); ?>">
+            <input type="text" name="wurzel" placeholder="Wurzel aus" value="<?php getWurzel() ?>">
             <br>
-            <input type="text" name="arr" placeholder="addiere Zahlen">
+            <input type="text" name="arr" placeholder="addiere Zahlen" value="<?php [getArr()] ?>">
             <br>
             <button type="submit" name="submit" value="submit">calc</button>
             <button type="submit" name="löschen">werte löschen</button>
@@ -32,11 +34,10 @@
     </div>
 
     <div id="erg">
-        <h3>Ergebnis:</h3>
+        <h3>result:</h3>
         <?php
-        require "processGetData.php";
         if (isset($_GET["submit"])) {
-            process($x, $y, $op, $w);
+            process();
         }
         ?>
     </div>
