@@ -53,6 +53,18 @@ function getWurzel()
     }
 }
 
+if ( array_key_exists('delete', $_GET)){
+    deleteNum();
+}
+
+function deleteNum() {
+    if(isset($_GET['delete'])){
+        $_GET["x"] = null;
+        $_GET['y'] = null;
+        $_GET['wurzel'] = null;
+    }
+}
+
 function getArr()
 {
     if (isset($_GET["arr"])) {

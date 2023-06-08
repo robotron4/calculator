@@ -1,7 +1,24 @@
+#main{
+    display: flex;
+}
+
+h1 {
+    margin-left: 2em;
+    margin-bottom: 0;
+}
+
 #calc {
     border: 5px solid rgb(0, 0, 0);
-    width: 28%;
     margin: 2em;
+    width: 40%;
+    padding: 2em;
+    border-radius: 1em;
+}
+
+#erg {
+    border: 5px solid rgb(0, 0, 0);
+    margin: 2em;
+    width: 40%;
     padding: 2em;
     border-radius: 1em;
 }
@@ -13,6 +30,10 @@ body {
 }
 
 form input {
+    margin: 2px;
+}
+
+form select {
     margin: 2px;
 }
 
