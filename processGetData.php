@@ -28,19 +28,10 @@ function process()
     }
 }
 
-function getX()
+function getVal($v)
 {
-    if (isset($_GET["x"])) {
-        echo htmlspecialchars($_GET['x']);
-    } else {
-        echo "";
-    }
-}
-
-function getY()
-{
-    if (isset($_GET["y"])) {
-        echo htmlspecialchars($_GET["y"]);
+    if (isset($_GET[$v])) {
+        echo htmlspecialchars($_GET[$v]);
     } else {
         echo "";
     }
@@ -53,12 +44,13 @@ function getWurzel()
     }
 }
 
-if ( array_key_exists('delete', $_GET)){
+if (array_key_exists('delete', $_GET)) {
     deleteNum();
 }
 
-function deleteNum() {
-    if(isset($_GET['delete'])){
+function deleteNum()
+{
+    if (isset($_GET['delete'])) {
         $_GET["x"] = null;
         $_GET['y'] = null;
         $_GET['wurzel'] = null;
