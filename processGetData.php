@@ -7,25 +7,27 @@ function process()
         $y = $_GET["y"];
         $op = $_GET["operator"];
 
-        switch ($op) {
-            case "add":
-                echo number_format($x, 0, ",", ".") . " + " . number_format($y, 0, ",", ".") . " = <b>" . number_format($x + $y, 0, ",", ".") . "</b>";
-                break;
-            case "subtract":
-                echo number_format($x, 0, ",", ".") . " - " . number_format($y, 0, ",", ".") . " = <b>" . number_format($x - $y, 0, ",", ".") . "</b>";
-                break;
-            case "multiply":
-                echo number_format($x, 0, ",", ".") . " x " . number_format($y, 0, ",", ".") . " = <b>" . number_format($x * $y, 0, ",", ".") . "</b>";
-                break;
-            case "divide":
-                echo number_format($x, 0, ",", ".") . " / " . number_format($y, 0, ",", ".") . " = <b>" . number_format($x / $y, 4, ",", ".") . "</b>";
-                break;
+        if (isset($_GET["x"]) && $x != null && isset($_GET["y"]) && $y != null) {
+            switch ($op) {
+                case "add":
+                    echo number_format($x, 0, ",", ".") . " + " . number_format($y, 0, ",", ".") . " = <b>" . number_format($x + $y, 0, ",", ".") . "</b>";
+                    break;
+                case "subtract":
+                    echo number_format($x, 0, ",", ".") . " - " . number_format($y, 0, ",", ".") . " = <b>" . number_format($x - $y, 0, ",", ".") . "</b>";
+                    break;
+                case "multiply":
+                    echo number_format($x, 0, ",", ".") . " x " . number_format($y, 0, ",", ".") . " = <b>" . number_format($x * $y, 0, ",", ".") . "</b>";
+                    break;
+                case "divide":
+                    echo number_format($x, 0, ",", ".") . " / " . number_format($y, 0, ",", ".") . " = <b>" . number_format($x / $y, 4, ",", ".") . "</b>";
+                    break;
+            }
         }
-        if (isset($_GET["wurzel"])) {
+        if (isset($_GET["wurzel"]) && $_GET["wurzel"] != null) {
             $w = floatval($_GET["wurzel"]);
             echo " <br> Wurzel aus " . number_format($w, 0, ",", ".") . " = <b>" . number_format(sqrt($w), 4, ",", ".") . "</b><br>";
         }
-        if (isset($_GET["arr"])) {
+        if (isset($_GET["arr"]) && $_GET["arr"] != null) {
             $nums = $_GET["arr"];
             $numArr = explode(",", $nums);
             $sum = 0;
