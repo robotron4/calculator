@@ -63,6 +63,7 @@ function deleteNum()
         $_GET["x"] = null;
         $_GET['y'] = null;
         $_GET['wurzel'] = null;
+        $_GET["arr"] = null;
     }
 }
 

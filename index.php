@@ -27,7 +27,7 @@
                 <br>
                 <input type="text" name="wurzel" placeholder="Wurzel aus" value="<?php getWurzel() ?>">
                 <br>
-                <input type="text" name="arr" placeholder="addiere Zahlen" value="">
+                <input type="text" name="arr" placeholder="addiere Zahlen mit , trennen" value="<?php getArr() ?>">
                 <br>
                 <button type="submit" name="submit" value="submit">calc</button>
                 <button type="submit" name="delete">werte löschen</button>
