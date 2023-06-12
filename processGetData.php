@@ -23,7 +23,16 @@ function process()
         }
         if (isset($_GET["wurzel"])) {
             $w = floatval($_GET["wurzel"]);
-            echo " <br> Wurzel aus " . number_format($w, 0, ",", ".") . " = <b>" . number_format(sqrt($w), 4, ",", ".") . "</b>";
+            echo " <br> Wurzel aus " . number_format($w, 0, ",", ".") . " = <b>" . number_format(sqrt($w), 4, ",", ".") . "</b><br>";
+        }
+        if (isset($_GET["arr"])) {
+            $nums = $_GET["arr"];
+            $numArr = explode(",", $nums);
+            $sum = 0;
+            foreach ($numArr as $n) {
+                $sum += intval($n);
+            }
+            echo "Summe ist = <b>" . number_format($sum, 0, ",", ".") . "</b>";
         }
     }
 }
