@@ -6,26 +6,30 @@ function process()
         $x = $_GET["x"];
         $y = $_GET["y"];
         $op = $_GET["operator"];
+        function formatNum($val)
+        {
+            return number_format($val, 0, ",", ".");
+        }
 
         if (isset($_GET["x"]) && $x != null && isset($_GET["y"]) && $y != null) {
             switch ($op) {
                 case "add":
-                    echo number_format($x, 0, ",", ".") . " + " . number_format($y, 0, ",", ".") . " = <b>" . number_format($x + $y, 0, ",", ".") . "</b>";
+                    echo formatNum($x) . " + " . formatNum($y) . " = <b>" . formatNum($x + $y) . "</b>";
                     break;
                 case "subtract":
-                    echo number_format($x, 0, ",", ".") . " - " . number_format($y, 0, ",", ".") . " = <b>" . number_format($x - $y, 0, ",", ".") . "</b>";
+                    echo formatNum($x) . " - " . formatNum($y) . " = <b>" . formatNum($x - $y) . "</b>";
                     break;
                 case "multiply":
-                    echo number_format($x, 0, ",", ".") . " x " . number_format($y, 0, ",", ".") . " = <b>" . number_format($x * $y, 0, ",", ".") . "</b>";
+                    echo formatNum($x) . " x " . formatNum($y) . " = <b>" . formatNum($x * $y) . "</b>";
                     break;
                 case "divide":
-                    echo number_format($x, 0, ",", ".") . " / " . number_format($y, 0, ",", ".") . " = <b>" . number_format($x / $y, 4, ",", ".") . "</b>";
+                    echo formatNum($x) . " / " . formatNum($y) . " = <b>" . formatNum($x / $y) . "</b>";
                     break;
             }
         }
         if (isset($_GET["wurzel"]) && $_GET["wurzel"] != null) {
             $w = floatval($_GET["wurzel"]);
-            echo " <br> Wurzel aus " . number_format($w, 0, ",", ".") . " = <b>" . number_format(sqrt($w), 4, ",", ".") . "</b><br>";
+            echo " <br> Wurzel aus " . formatNum($w) . " = <b>" . number_format(sqrt($w), 4, ",", ".") . "</b><br>";
         }
         if (isset($_GET["arr"]) && $_GET["arr"] != null) {
             $nums = $_GET["arr"];
@@ -34,7 +38,7 @@ function process()
             foreach ($numArr as $n) {
                 $sum += intval($n);
             }
-            echo "Summe ist = <b>" . number_format($sum, 0, ",", ".") . "</b>";
+            echo "Summe ist = <b>" . formatNum($sum) . "</b>";
         }
     }
 }
